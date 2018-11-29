@@ -1,17 +1,44 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@Styles.Render("~/Content/parallax.css")
+@*<h2>@ViewBag.Title</h2>*@
+
+<div class="bgimg-1">
+	<div class="caption">
+		<span class="border">Contact</span>
+	</div>
+</div>
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+	<h3 style="text-align:center;">Address</h3>
+	<p>
+		<address>
+			Craiova (Km 0)<br />
+			Str. Bucuresti,Nr.21, Bl. A4, Parter<br />
+			Livrari la domiciliu zilnic intre orele: 09.00-22.00<br />
+			”Good Food”<br />
+		</address>
+	</p>
+</div>
+<div class="bgimg-2">
+	<div class="caption">
+		<span class="border" style="background-color:transparent;font-size:25px;color: #111;">Contact us</span>
+	</div>
+</div>
+<div style="position:relative;">
+	<div style="color:#ddd;background-color:#8f0222;text-align:center;padding:50px 80px;text-align: justify;">
+		<address>
+			<abbr title="Telefon">Tel:</abbr>
+			0241 766 633<br />
+			<abbr title="Mobil">Mobil:</abbr>
+			0732 264 259<br />
+			<abbr title="Email">Email:</abbr>
+			goodfooddenisadi@yahoo.com<br />
+		</address>
+	</div>
+</div>
+@if (!Request.IsAuthenticated)
+{
+	<div class="bgimg-3">
+		<div class="caption">
+			<span class="border">@Html.ActionLink("Create Account", "Register", "Account")</span>
+		</div>
+	</div>
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
