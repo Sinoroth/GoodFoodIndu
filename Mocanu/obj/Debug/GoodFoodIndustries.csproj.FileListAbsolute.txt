@@ -113,7 +113,6 @@ C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\bin\Microsoft.AI.DependencyC
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\bin\Microsoft.AI.Web.xml
-C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\GoodFoodIndustries.csprojResolveAssemblyReference.cache
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\GoodFoodIndustries.csproj.CoreCompileInputs.cache
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\GoodFoodIndustries.csproj.CopyComplete
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.dll

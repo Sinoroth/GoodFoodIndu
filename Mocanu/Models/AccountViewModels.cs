@@ -70,6 +70,20 @@ namespace Mocanu.Models
         public string Email { get; set; }
 
         [Required]
+        [Display(Name = "First name")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Letters only")]
+        [MaxLength(20, ErrorMessage = "The field must have a maximum of {1} characters")]
+        [MinLength(3, ErrorMessage = "The field must have a minimum of {1} characters")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Letters only")]
+        [MaxLength(30, ErrorMessage = "The field must have a maximum of {1} characters")]
+        [MinLength(3, ErrorMessage = "The field must have a minimum of {1} characters")]
+        public string LastName { get; set; }
+
+        [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
@@ -79,6 +93,39 @@ namespace Mocanu.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "CNP")]
+        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Numbers only")]
+        [MaxLength(13, ErrorMessage = "The field must have {1} characters")]
+        [MinLength(13, ErrorMessage = "The field must have {1} characters")]
+        public string CNP { get; set; }
+
+        [Required]
+        [Display(Name = "ID Card series")]
+        [RegularExpression(@"^[A-Z]+$", ErrorMessage = "Capital Letters only")]
+        [MaxLength(2, ErrorMessage = "The field must have {1} characters")]
+        [MinLength(2, ErrorMessage = "The field must have {1} characters")]
+        public string IDCardSeries { get; set; }
+
+        [Required]
+        [Display(Name = "ID Card number")]
+        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Numbers only")]
+        [MaxLength(6, ErrorMessage = "The field must have {1} characters")]
+        [MinLength(6, ErrorMessage = "The field must have {1} characters")]
+        public string IDCardNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Telephone number")]
+        [DataType(DataType.PhoneNumber)]
+        public string TelephoneNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        [MaxLength(50, ErrorMessage = "The field must have {1} characters")]
+        public string Address { get; set; }
+
+        public bool Terms { get; set; }
     }
 
     public class ResetPasswordViewModel

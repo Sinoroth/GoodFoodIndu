@@ -16,6 +16,11 @@ namespace Mocanu.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string Address { get; set; }
+        public string CNP { get; set; }
+        public string ID_Card_Series { get; set; }
+        public string ID_Card_Number { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
