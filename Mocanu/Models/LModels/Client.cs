@@ -16,6 +16,11 @@ namespace Mocanu.Models.LModels
         [MaxLength(50)]
         public string Address { get; set; }
 
+        public int UserScore { get; set; } = -1;
+
+        [MaxLength(100)]
+        public string CNP { get; set; }
+
         [MaxLength(2)]
         [MinLength(2)]
         public string ID_Card_Series { get; set; }
@@ -30,6 +35,10 @@ namespace Mocanu.Models.LModels
 
         public string TelephoneNumber { get; set; }
 
+        public List<Transaction> transactions { get; set; }
+
         public string Password { get; set; }
+
+        public bool isSuspended { get; set; } = false;
     }
 }
