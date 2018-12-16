@@ -1,7 +1,40 @@
 ﻿
 @{
-    ViewBag.Title = "FoodPage";
+	ViewBag.Title = "FoodPage";
 }
 
-<h2>FoodPage</h2>
+@Styles.Render("~/Content/foodpagestyle.css")
+@Styles.Render("~/Content/MoreFoodImages.css")
 
+
+
+<nav class="header_nav1">
+
+	<li>@Html.ActionLink("Home", "FoodPage")</li>
+	<li>@Html.ActionLink("Chicken", "Food", new { foodtype = "Chicken" })</li>
+	<li>@Html.ActionLink("Beef", "Food", new { foodtype = "Beef" })</li>
+	<li>@Html.ActionLink("Pork", "Food", new { foodtype = "Pork" })</li>
+	<li>@Html.ActionLink("Salads", "Food", new { foodtype = "Salads" })</li>
+	<li>@Html.ActionLink("Desserts", "Food", new { foodtype = "Desserts" })</li>
+	<li>@Html.ActionLink("Beverages", "Food", new { foodtype = "Chicken" })</li>
+
+
+
+</nav>
+
+<div class="main">
+	<span style="display:inline-block; width: 20px;"></span>
+	<h2>Apasati pe butoane pentru a vedea meniurile respective</h2>
+
+	<h3><font color="red"><<<	Comenzi la Domiciliu	>>></font></h3>
+
+	<p>Zilnic intre orele : 09 - 22</p>
+	<p>Telefon: 0241 766 633</p>
+	<p>Mobil: 0732 264 259</p>
+
+	<h3><font color="red"><<<	Zona de livrare    >>></font></h3>
+
+	<p>La adresa selectata in contul dumneavoastra sau pe pagina cu comanda</p>
+
+
+</div>

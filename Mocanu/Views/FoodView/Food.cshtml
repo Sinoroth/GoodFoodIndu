@@ -1,0 +1,97 @@
+﻿@model List<CateringApplication.Models.LModels.FoodOrderView>
+
+@Styles.Render("~/Content/foodpagestyle.css")
+<style>
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+
+		td:hover {
+			color: red
+		}
+
+			td:hover .split {
+				display: block;
+			}
+
+
+	.split {
+		height: 80%;
+		width: 20%;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		overflow-x: hidden;
+		padding-top: 20px;
+		right: 0;
+		editor /#a90329+0,8f0222+46,6d0019+54 */ background: #a90329; /* Old browsers */
+		display: none;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 ); /* IE6-9 */
+	}
+
+	/* If you want the content centered horizontally and vertically */
+	.centered {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+
+		/* Style the image inside the centered container, if needed */
+		.centered img {
+			width: 300px;
+			border-radius: 100%;
+		}
+</style>
+
+<nav class="header_nav1">
+	<li>@Html.ActionLink("Home", "FoodPage")</li>
+
+	<li>@Html.ActionLink("Chicken", "Food", new { foodtype = "Chicken" })</li>
+	<li>@Html.ActionLink("Beef", "Food", new { foodtype = "Beef" })</li>
+	<li>@Html.ActionLink("Pork", "Food", new { foodtype = "Pork" })</li>
+	<li>@Html.ActionLink("Salads", "Food", new { foodtype = "Salads" })</li>
+	<li>@Html.ActionLink("Desserts", "Food", new { foodtype = "Desserts" })</li>
+	<li>@Html.ActionLink("Beverages", "Food", new { foodtype = "Chicken" })</li>
+
+</nav>
+<p></p><span style="display:inline-block; width: 50px;"><p></p><p></p></span>
+<br /><br />
+<p></p><p></p><p></p>
+<table style="width:100%">
+	<tr>
+		<th>Name</th>
+		<th>Cantitate</th>
+		<th>Price</th>
+		<th>PlaceOrder</th>
+
+	</tr>
+
+	@for (int foodIndex = 0; foodIndex < Model.Count(); ++foodIndex)
+	{
+		<tr>
+				<td>
+					@Html.DisplayFor(modelitem => Model[foodIndex].FoodName)
+					<div class="split">
+						<div class="centered">
+							<img src="@Url.Content(Model[foodIndex].ImageLink)">
+							<p>@Html.DisplayFor(modelitem => Model[foodIndex].FoodIngredients)</p>
+						</div>
+					</div>
+				</td>
+				<td>@Html.DisplayFor(modelitem => Model[foodIndex].Quantity) gr</td>
+				<td>@Html.DisplayFor(modelItem => Model[foodIndex].Price) lei</td>
+				<td>
+					@Html.ActionLink("Order", "Order", new { FoodName = Model[foodIndex].FoodName })
+				</td>
+			
+		</tr>
+	}
+</table>
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}
+
