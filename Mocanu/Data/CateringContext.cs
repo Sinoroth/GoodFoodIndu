@@ -15,6 +15,7 @@ namespace Mocanu.Data
 
         public DbSet<Food> foods { get; set; }
         public DbSet<Transaction> transactions { get; set; }
+        public DbSet<CurrentOrder> currentOrders { get; set; }
 
         public System.Data.Entity.DbSet<Mocanu.Models.LModels.Client> Clients { get; set; }
 

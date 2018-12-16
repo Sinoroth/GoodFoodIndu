@@ -200,8 +200,10 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LModels\Client.cs" />
+    <Compile Include="Models\LModels\CurrentOrder.cs" />
     <Compile Include="Models\LModels\Food.cs" />
     <Compile Include="Models\LModels\FoodIngredient.cs" />
+    <Compile Include="Models\LModels\FoodOrderView.cs" />
     <Compile Include="Models\LModels\FoodtoFoodIngredients.cs" />
     <Compile Include="Models\LModels\Transaction.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
