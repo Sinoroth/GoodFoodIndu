@@ -201,6 +201,8 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LModels\Client.cs" />
     <Compile Include="Models\LModels\Food.cs" />
+    <Compile Include="Models\LModels\FoodIngredient.cs" />
+    <Compile Include="Models\LModels\FoodtoFoodIngredients.cs" />
     <Compile Include="Models\LModels\Transaction.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -281,6 +283,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\FoodView\FoodPage.cshtml" />
+    <Content Include="Views\FoodView\Food.cshtml" />
+    <Content Include="Views\FoodView\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
