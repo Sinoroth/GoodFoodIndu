@@ -287,6 +287,7 @@
     <Content Include="Views\FoodView\FoodPage.cshtml" />
     <Content Include="Views\FoodView\Food.cshtml" />
     <Content Include="Views\FoodView\Order.cshtml" />
+    <Content Include="Views\Home\Plate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
