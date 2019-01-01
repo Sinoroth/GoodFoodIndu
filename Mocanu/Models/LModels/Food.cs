@@ -15,5 +15,7 @@ namespace Mocanu.Models.LModels
         public int Price { get; set; }
         public int Quantity { get; set; }
         public string FoodType { get; set; }
+
+        public virtual IEnumerable<FoodtoFoodIngredients> FoodtoFoodIngredients { get; set; } = new List<FoodtoFoodIngredients>();
     }
 }
