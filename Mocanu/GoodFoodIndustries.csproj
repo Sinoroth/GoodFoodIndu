@@ -198,6 +198,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Catering\201901012313203_FirstChange.cs" />
+    <Compile Include="Migrations\Catering\201901012313203_FirstChange.Designer.cs">
+      <DependentUpon>201901012313203_FirstChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Catering\Configuration.cs" />
     <Compile Include="Migrations\Identity\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -307,6 +311,11 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\Catering\201901012313203_FirstChange.resx">
+      <DependentUpon>201901012313203_FirstChange.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
