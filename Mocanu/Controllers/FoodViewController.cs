@@ -10,6 +10,8 @@ namespace Mocanu.Controllers
 {
     public class FoodViewController : Controller
     {
+        CateringContext context = new CateringContext();
+
         public ActionResult FoodPage()
         {
             ViewBag.Message = "";
@@ -68,5 +70,15 @@ namespace Mocanu.Controllers
             return foodOrderView;
         }
 
+        public ActionResult Food(string foodtype)
+        {
+            List<FoodOrderView> foodView = new List<FoodOrderView>();
+            foreach (var food in context.foods)
+            {
+                if (food.FoodType == foodtype)
+                    foodView.Add(getView(food));
+            }
+            return View(foodView);
+        }
     }
 }

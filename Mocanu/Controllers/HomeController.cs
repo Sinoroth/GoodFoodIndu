@@ -26,5 +26,12 @@ namespace Mocanu.Controllers
 
             return View();
         }
+
+        // GET: Home/Plate
+        [HttpGet]
+        public ActionResult Plate()
+        {
+            return View();
+        }
     }
 }
