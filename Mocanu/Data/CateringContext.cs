@@ -18,9 +18,12 @@ namespace Mocanu.Data
         public DbSet<CurrentOrder> currentOrders { get; set; }
 
         public DbSet<FoodtoFoodIngredients> FoodtoFoodIngredients { get; set; }
+        public DbSet<TransactionToFood> TransactionToFoods { get; set; }
 
 
         public System.Data.Entity.DbSet<Mocanu.Models.LModels.Client> Clients { get; set; }
+        public System.Data.Entity.DbSet<Mocanu.Models.LModels.FoodOrderView> FoodOrderViews { get; set; }
+
 
     }
 }

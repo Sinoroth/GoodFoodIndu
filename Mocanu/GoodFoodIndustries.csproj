@@ -212,11 +212,13 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LModels\Client.cs" />
     <Compile Include="Models\LModels\CurrentOrder.cs" />
+    <Compile Include="Models\LModels\CurrentOrderToFood.cs" />
     <Compile Include="Models\LModels\Food.cs" />
     <Compile Include="Models\LModels\FoodIngredient.cs" />
     <Compile Include="Models\LModels\FoodOrderView.cs" />
     <Compile Include="Models\LModels\FoodtoFoodIngredients.cs" />
     <Compile Include="Models\LModels\Transaction.cs" />
+    <Compile Include="Models\LModels\TransactionToFood.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

@@ -1,9 +1,4 @@
 ﻿@model List<Mocanu.Models.LModels.FoodOrderView>
-@{
-	ViewBag.Title = "Food";
-}
-
-
 @Styles.Render("~/Content/foodpagestyle.css")
 <style>
 	table, th, td {
@@ -50,15 +45,15 @@
 		}
 </style>
 
-nav class="header_nav1">
-<li>@Html.ActionLink("Home", "FoodPage")</li>
+<nav class="header_nav1">
+	<li>@Html.ActionLink("Home", "FoodPage")</li>
 
-<li>@Html.ActionLink("Chicken", "Food", new { foodtype = "Chicken" })</li>
-<li>@Html.ActionLink("Beef", "Food", new { foodtype = "Beef" })</li>
-<li>@Html.ActionLink("Pork", "Food", new { foodtype = "Pork" })</li>
-<li>@Html.ActionLink("Salads", "Food", new { foodtype = "Salads" })</li>
-<li>@Html.ActionLink("Desserts", "Food", new { foodtype = "Desserts" })</li>
-<li>@Html.ActionLink("Beverages", "Food", new { foodtype = "Chicken" })</li>
+	<li>@Html.ActionLink("Chicken", "Food", new { foodtype = "Chicken" })</li>
+	<li>@Html.ActionLink("Beef", "Food", new { foodtype = "Beef" })</li>
+	<li>@Html.ActionLink("Pork", "Food", new { foodtype = "Pork" })</li>
+	<li>@Html.ActionLink("Salads", "Food", new { foodtype = "Salads" })</li>
+	<li>@Html.ActionLink("Desserts", "Food", new { foodtype = "Desserts" })</li>
+	<li>@Html.ActionLink("Beverages", "Food", new { foodtype = "Chicken" })</li>
 
 </nav>
 <p></p><span style="display:inline-block; width: 50px;"><p></p><p></p></span>
@@ -98,3 +93,4 @@ nav class="header_nav1">
 @section Scripts {
 	@Scripts.Render("~/bundles/jqueryval")
 }
+
