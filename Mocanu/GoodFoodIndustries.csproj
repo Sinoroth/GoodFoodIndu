@@ -206,6 +206,10 @@
     <Compile Include="Migrations\Catering\201901062313187_NewTables.Designer.cs">
       <DependentUpon>201901062313187_NewTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Catering\201901062335358_Test.cs" />
+    <Compile Include="Migrations\Catering\201901062335358_Test.Designer.cs">
+      <DependentUpon>201901062335358_Test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Catering\Configuration.cs" />
     <Compile Include="Migrations\Identity\201901012317493_InitialCreate.cs" />
     <Compile Include="Migrations\Identity\201901012317493_InitialCreate.Designer.cs">
@@ -338,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Catering\201901062313187_NewTables.resx">
       <DependentUpon>201901062313187_NewTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Catering\201901062335358_Test.resx">
+      <DependentUpon>201901062335358_Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Identity\201901012317493_InitialCreate.resx">
       <DependentUpon>201901012317493_InitialCreate.cs</DependentUpon>
