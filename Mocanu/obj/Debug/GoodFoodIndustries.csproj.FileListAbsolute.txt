@@ -117,7 +117,7 @@ C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\GoodFoodIndustries
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\GoodFoodIndustries.csproj.CopyComplete
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.dll
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.pdb
-C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\GoodFoodIndustries.csprojResolveAssemblyReference.cache
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.Migrations.Catering.FirstChange.resources
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\GoodFoodIndustries.csproj.GenerateResource.cache
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.Migrations.Identity.InitialCreate.resources
+C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.Migrations.Catering.NewTables.resources

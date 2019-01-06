@@ -1,5 +1,7 @@
-﻿
+﻿@model Mocanu.Models.LModels.TransactionViewModel
 @{
+	/**/
+
 	ViewBag.Title = "Plate";
 }
 
@@ -12,5 +14,90 @@
 	}
 </style>
 
-<h2>Plate</h2>
+@using (Html.BeginForm("Plate", "Home"))
+{
+	@Html.AntiForgeryToken()
+
+	<div class="bgimg-1">
+		<div class="caption">
+			<span class="border">Cost total</span>
+		</div>
+	</div>
+	<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+		<h3 style="text-align:center;"><div>@Model.TotalCost</div></h3>
+	</div>
+	<div class="bgimg-2">
+	</div>
+	<div style="position:relative;">
+		<div style="color:#ddd;background-color:#8f0222;text-align:center;padding:50px 80px;text-align: justify;">
+			<address>
+				<h2>Comanda</h2>
+
+				<table style="width:100%">
+					<tr>
+						<th>Name</th>
+						<th>Price</th>
+						<th>NumberInPlate</th>
+					</tr>
+					@Html.HiddenFor(modelItem => Model.Foods)
+					@Html.HiddenFor(modelItem => Model.ClientId)
+
+					@foreach (var food in Model.Foods)
+					{
+						if (food.Number > 0)
+						{
+							<tr>
+								<td>@Html.DisplayFor(modelitem => food.Name)</td>
+								<td>@Html.DisplayFor(modelItem => food.Price) lei</td>
+								<td>@Html.DisplayFor(modelItem => food.Number)</td>
+								@Html.HiddenFor(modelItem => food.Id)
+							</tr>
+
+						}
+					}
+				</table>
+
+			</address>
+		</div>
+	</div>
+
+	<div class="bgimg-3">
+		<div class="caption">
+			<form action="/action_page.php">
+				<div class="form-group">
+					@Html.LabelFor(model => model.ID_Card_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.EditorFor(model => model.ID_Card_Number, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(model => model.ID_Card_Number, "", new { @class = "text-danger" })
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.ID_Card_Series, htmlAttributes: new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.EditorFor(model => model.ID_Card_Series, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(model => model.ID_Card_Series, "", new { @class = "text-danger" })
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+						@Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+					</div>
+				</div>
+
+				@Html.HiddenFor(modelItem => Model.Id)
+				@Html.HiddenFor(modelItem => Model.Email)
+
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-10">
+						<input type="submit" value="Save" class="btn btn-default" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+}
 

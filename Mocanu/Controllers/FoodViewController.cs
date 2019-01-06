@@ -80,5 +80,57 @@ namespace Mocanu.Controllers
             }
             return View(foodView);
         }
+
+        public ActionResult Order(string FoodName)
+        {
+            CateringContext db = new CateringContext();
+            Food newFood = new Food();
+
+            foreach (var f in db.foods)
+            {
+                if (f.FoodName == FoodName)
+                {
+                    newFood = f;
+                }
+            }
+
+            return View(getView(newFood));
+        }
+
+        [HttpPost]
+        public ActionResult Order(FoodOrderView foodOrderView)
+        {
+            CateringContext cateringContext = new CateringContext();
+            if (foodOrderView.NumberInOrder < 0)
+            {
+                return View("FoodPage");
+            }
+            if (Request.IsAuthenticated)
+            {
+                foreach (var f in cateringContext.currentOrders)
+                {
+                    if (f.FoodName == foodOrderView.FoodName)
+                    {
+                        cateringContext.currentOrders.Remove(f);
+                    }
+                }
+
+                cateringContext.currentOrders.Add(new CurrentOrder
+                {
+                    FoodName = foodOrderView.FoodName,
+                    Price = foodOrderView.Price,
+                    NumberInOrder = foodOrderView.NumberInOrder
+                });
+
+                cateringContext.SaveChanges();
+            }
+            else
+            {
+                HttpCookie httpCookie = new HttpCookie(foodOrderView.FoodName, foodOrderView.NumberInOrder.ToString());
+                Response.Cookies.Add(httpCookie);
+            }
+
+            return RedirectToAction("FoodPage");
+        }
     }
 }
