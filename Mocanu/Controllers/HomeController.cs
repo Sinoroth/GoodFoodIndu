@@ -139,5 +139,102 @@ namespace Mocanu.Controllers
             return View(transactionViewModel);
         }
 
+        public ActionResult Plate(TransactionViewModel model)
+        {
+            if (model.Address == null || model.ID_Card_Number == null || model.ID_Card_Series == null)
+            {
+                return RedirectToAction("Plate");
+
+            }
+            Transaction transaction = new Transaction();
+            transaction.TotalCost = model.TotalCost;
+            transaction.ID_Card_Number = model.ID_Card_Number;
+            transaction.ID_Card_Series = model.ID_Card_Series;
+            transaction.Address = model.Address;
+            transaction.Date = DateTime.Now;
+
+            if (Request.IsAuthenticated)
+            {
+                transaction.Email = model.Email;
+                transaction.ClientId = model.ClientId;
+
+                foreach (var food in db.currentOrders)
+                {
+                    if (food.NumberInOrder > 0)
+                    {
+                        db.TransactionToFoods.Add(new TransactionToFood
+                        {
+                            Number = food.NumberInOrder,
+                            FoodName = food.FoodName,
+                            TransactionId = transaction.Id
+                        });
+                    }
+
+                    db.currentOrders.Remove(food);
+                }
+            }
+            else
+            {
+                transaction.Email = "Guest@a.net";
+
+                HttpCookieCollection MyCookieColl = Request.Cookies;
+                HttpCookie MyCookie;
+
+                String[] arr1 = MyCookieColl.AllKeys;
+                CateringContext ct = new CateringContext();
+
+                for (int i = 0; i < arr1.Length; i++)
+                {
+                    MyCookie = MyCookieColl[arr1[i]];
+                    int price = 0;
+                    bool ok = false;
+
+                    if (MyCookie.Value == null)
+                    {
+                        continue;
+                    }
+
+                    foreach (var food in ct.foods)
+                    {
+                        if (food.FoodName == MyCookie.Name)
+                        {
+                            price = food.Price;
+                            ok = true;
+                            MyCookie.Expires = DateTime.Now.AddDays(-10);
+                        }
+                    }
+                    if (ok == false) continue;
+
+                    if (Int32.TryParse(MyCookie.Value, out int temp) == false)
+                    {
+                        MyCookie.Expires = DateTime.Now.AddDays(-10);
+                        continue;
+                    }
+
+                    db.TransactionToFoods.Add(new TransactionToFood
+                    {
+                        Number = Int32.Parse(MyCookie.Value),
+                        FoodName = MyCookie.Name,
+                        TransactionId = transaction.Id
+                    });
+                    MyCookie.Expires = DateTime.Now.AddDays(-10);
+                    db.transactions.Add(transaction);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+            }
+
+            db.transactions.Add(transaction);
+            db.SaveChanges();
+            return RedirectToAction("PostOrder");
+        }
+
+        [HttpGet]
+        public ActionResult PostOrder()
+        {
+            return View();
+        }
+
     }
 }
