@@ -1,9 +1,13 @@
 namespace Mocanu.Migrations.Identity
 {
+    using Mocanu.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+
 
     internal sealed class Configuration : DbMigrationsConfiguration<Mocanu.Models.ApplicationDbContext>
     {
@@ -15,18 +19,43 @@ namespace Mocanu.Migrations.Identity
 
         protected override void Seed(Mocanu.Models.ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            if (!roleManager.RoleExists("Admin"))
+                roleManager.Create(new IdentityRole("Admin"));
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            if (!roleManager.RoleExists("User"))
+                roleManager.Create(new IdentityRole("User"));
+
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var PasswordHash = new PasswordHasher();
+            if (!context.Users.Any(u => u.UserName == "admin@admin.net"))
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = "admin@admin.net",
+                    Email = "admin@admin.net",
+                    PasswordHash = PasswordHash.HashPassword("123456")
+                };
+
+                UserManager.Create(user);
+                UserManager.AddToRole(user.Id, "Admin");
+
+            }
+
+            if (!context.Users.Any(u => u.UserName == "Guest"))
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = "Guest",
+                    Email = "Guest@a.net",
+                    Id = "Guest",
+                    PasswordHash = PasswordHash.HashPassword("1")
+                };
+
+                UserManager.Create(user);
+                UserManager.AddToRole(user.Id, "User");
+
+            }
         }
     }
 }
