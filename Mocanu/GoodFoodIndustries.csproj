@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FoodsController.cs" />
     <Compile Include="Controllers\FoodViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Migrations\Identity\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LModels\CheckBoxViewModel.cs" />
     <Compile Include="Models\LModels\Client.cs" />
     <Compile Include="Models\LModels\CurrentOrder.cs" />
     <Compile Include="Models\LModels\CurrentOrderToFood.cs" />
@@ -229,6 +231,7 @@
     <Compile Include="Models\LModels\FoodIngredient.cs" />
     <Compile Include="Models\LModels\FoodOrderView.cs" />
     <Compile Include="Models\LModels\FoodtoFoodIngredients.cs" />
+    <Compile Include="Models\LModels\FoodViewsModel.cs" />
     <Compile Include="Models\LModels\NumberedViewModel.cs" />
     <Compile Include="Models\LModels\Transaction.cs" />
     <Compile Include="Models\LModels\TransactionToFood.cs" />
@@ -324,6 +327,11 @@
     <Content Include="Views\FoodView\Order.cshtml" />
     <Content Include="Views\Home\Plate.cshtml" />
     <Content Include="Views\Home\PostOrder.cshtml" />
+    <Content Include="Views\Foods\Create.cshtml" />
+    <Content Include="Views\Foods\Delete.cshtml" />
+    <Content Include="Views\Foods\Details.cshtml" />
+    <Content Include="Views\Foods\Edit.cshtml" />
+    <Content Include="Views\Foods\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

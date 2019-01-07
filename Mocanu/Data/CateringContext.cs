@@ -17,6 +17,7 @@ namespace Mocanu.Data
         public DbSet<Transaction> transactions { get; set; }
         public DbSet<CurrentOrder> currentOrders { get; set; }
 
+        public DbSet<FoodIngredient> foodIngredients { get; set; }
         public DbSet<FoodtoFoodIngredients> FoodtoFoodIngredients { get; set; }
         public DbSet<TransactionToFood> TransactionToFoods { get; set; }
 
