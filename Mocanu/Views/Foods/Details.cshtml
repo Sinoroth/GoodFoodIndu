@@ -1,7 +1,76 @@
-﻿
+﻿@model Mocanu.Models.LModels.FoodViewsModel
+
 @{
-    ViewBag.Title = "Details";
+	ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
 
+<div>
+	<h4>Food</h4>
+	<hr />
+	<dl class="dl-horizontal">
+
+		<dt>
+			@Html.DisplayNameFor(model => model.FoodName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.FoodName)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.FoodType)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.FoodType)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Price)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Price)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Quantity)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Quantity)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.FoodIngredients)
+		</dt>
+
+		<dd>
+			@foreach (var ingredient in Model.FoodIngredients)
+			{
+				if (ingredient.Checked == true)
+				{
+					<div>@ingredient.Name</div>
+				}
+			}
+
+		</dd>
+
+
+		<dt>
+			@Html.DisplayNameFor(model => model.ImageLink)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.ImageLink)
+		</dd>
+
+
+	</dl>
+</div>
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = Model.FoodName }) |
+	@Html.ActionLink("Back to List", "Index")
+</p>

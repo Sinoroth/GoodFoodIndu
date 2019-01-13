@@ -27,6 +27,14 @@
 					<li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 					<li>@Html.ActionLink("Menus", "FoodPage", "FoodView")</li>
 					<li>@Html.ActionLink("Order", "Plate", "Home")</li>
+					@if (User.IsInRole("Admin"))
+	{
+				<li>@Html.ActionLink("Clients", "Index", "Clients")</li>
+				<li>@Html.ActionLink("Foods", "Index", "Foods")</li>
+				<li>@Html.ActionLink("FoodIngredients", "Index", "FoodIngredients")</li>
+				<li>@Html.ActionLink("Transactions", "Index", "Transactions")</li>
+				<li>@Html.ActionLink("Login_logs", "Index", "LoginLogsModels")</li>
+}
 
 				</ul>
                 @Html.Partial("_LoginPartial")
