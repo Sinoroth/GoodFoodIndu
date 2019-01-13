@@ -22,5 +22,6 @@ namespace Mocanu.Models.LModels
         [Display(Name = "Purchase Date")]
         public DateTime? Date { get; set; }
 
+        public virtual List<TransactionToFood> transactionToFoods { get; set; } = new List<TransactionToFood>();
     }
 }

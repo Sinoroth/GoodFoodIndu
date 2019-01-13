@@ -194,6 +194,7 @@
     <Compile Include="Controllers\FoodViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Data\CateringContext.cs" />
     <Compile Include="Data\DummyData.cs" />
     <Compile Include="Global.asax.cs">
@@ -210,6 +211,14 @@
     <Compile Include="Migrations\Catering\201901062335358_Test.cs" />
     <Compile Include="Migrations\Catering\201901062335358_Test.Designer.cs">
       <DependentUpon>201901062335358_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Catering\201901132112115_EditNew11.cs" />
+    <Compile Include="Migrations\Catering\201901132112115_EditNew11.Designer.cs">
+      <DependentUpon>201901132112115_EditNew11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Catering\201901132113019_EditNew1.cs" />
+    <Compile Include="Migrations\Catering\201901132113019_EditNew1.Designer.cs">
+      <DependentUpon>201901132113019_EditNew1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Catering\Configuration.cs" />
     <Compile Include="Migrations\Identity\201901012317493_InitialCreate.cs" />
@@ -332,9 +341,17 @@
     <Content Include="Views\Foods\Details.cshtml" />
     <Content Include="Views\Foods\Edit.cshtml" />
     <Content Include="Views\Foods\Index.cshtml" />
+    <Content Include="Views\Transactions\Create.cshtml" />
+    <Content Include="Views\Transactions\Delete.cshtml" />
+    <Content Include="Views\Transactions\Edit.cshtml" />
+    <Content Include="Views\Transactions\Details.cshtml" />
+    <Content Include="Views\Transactions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Clients\" />
+    <Folder Include="Views\FoodIngredients\" />
+    <Folder Include="Views\LoginLogModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -358,6 +375,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Catering\201901062335358_Test.resx">
       <DependentUpon>201901062335358_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Catering\201901132112115_EditNew11.resx">
+      <DependentUpon>201901132112115_EditNew11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Catering\201901132113019_EditNew1.resx">
+      <DependentUpon>201901132113019_EditNew1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Identity\201901012317493_InitialCreate.resx">
       <DependentUpon>201901012317493_InitialCreate.cs</DependentUpon>
