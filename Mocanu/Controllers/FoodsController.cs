@@ -86,7 +86,7 @@ namespace Mocanu.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FoodName,ImageLink,Price,Quantity")] Food food)
+        public ActionResult Create([Bind(Include = "FoodName,FoodType,ImageLink,Price,Quantity")] Food food)
         {
             if (ModelState.IsValid)
             {
