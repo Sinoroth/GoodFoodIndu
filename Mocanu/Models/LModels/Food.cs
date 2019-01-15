@@ -17,5 +17,6 @@ namespace Mocanu.Models.LModels
         public string FoodType { get; set; }
 
         public virtual IEnumerable<FoodtoFoodIngredients> FoodtoFoodIngredients { get; set; } = new List<FoodtoFoodIngredients>();
+        public virtual List<TransactionToFood> transactionToFoods { get; set; } = new List<TransactionToFood>();
     }
 }

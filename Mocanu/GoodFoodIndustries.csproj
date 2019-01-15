@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\FoodsController.cs" />
     <Compile Include="Controllers\FoodViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -220,6 +221,10 @@
     <Compile Include="Migrations\Catering\201901132113019_EditNew1.Designer.cs">
       <DependentUpon>201901132113019_EditNew1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Catering\201901152236151_EditNew111.cs" />
+    <Compile Include="Migrations\Catering\201901152236151_EditNew111.Designer.cs">
+      <DependentUpon>201901152236151_EditNew111.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Catering\Configuration.cs" />
     <Compile Include="Migrations\Identity\201901012317493_InitialCreate.cs" />
     <Compile Include="Migrations\Identity\201901012317493_InitialCreate.Designer.cs">
@@ -234,6 +239,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LModels\CheckBoxViewModel.cs" />
     <Compile Include="Models\LModels\Client.cs" />
+    <Compile Include="Models\LModels\ComplexViewModel.cs" />
     <Compile Include="Models\LModels\CurrentOrder.cs" />
     <Compile Include="Models\LModels\CurrentOrderToFood.cs" />
     <Compile Include="Models\LModels\Food.cs" />
@@ -241,10 +247,13 @@
     <Compile Include="Models\LModels\FoodOrderView.cs" />
     <Compile Include="Models\LModels\FoodtoFoodIngredients.cs" />
     <Compile Include="Models\LModels\FoodViewsModel.cs" />
+    <Compile Include="Models\LModels\LoginLogsModels.cs" />
     <Compile Include="Models\LModels\NumberedViewModel.cs" />
     <Compile Include="Models\LModels\Transaction.cs" />
     <Compile Include="Models\LModels\TransactionToFood.cs" />
     <Compile Include="Models\LModels\TransactionViewModel.cs" />
+    <Compile Include="Models\LModels\UserToTransaction.cs" />
+    <Compile Include="Models\LModels\UserViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -346,12 +355,24 @@
     <Content Include="Views\Transactions\Edit.cshtml" />
     <Content Include="Views\Transactions\Details.cshtml" />
     <Content Include="Views\Transactions\Index.cshtml" />
+    <Content Include="Views\LoginLogsModels\Create.cshtml" />
+    <Content Include="Views\LoginLogsModels\Delete.cshtml" />
+    <Content Include="Views\LoginLogsModels\Details.cshtml" />
+    <Content Include="Views\LoginLogsModels\Edit.cshtml" />
+    <Content Include="Views\LoginLogsModels\Index.cshtml" />
+    <Content Include="Views\FoodIngredients\Create.cshtml" />
+    <Content Include="Views\FoodIngredients\Delete.cshtml" />
+    <Content Include="Views\FoodIngredients\Details.cshtml" />
+    <Content Include="Views\FoodIngredients\Edit.cshtml" />
+    <Content Include="Views\FoodIngredients\Index.cshtml" />
+    <Content Include="Views\Clients\Create.cshtml" />
+    <Content Include="Views\Clients\Delete.cshtml" />
+    <Content Include="Views\Clients\Details.cshtml" />
+    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Clients\" />
-    <Folder Include="Views\FoodIngredients\" />
-    <Folder Include="Views\LoginLogModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -381,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Catering\201901132113019_EditNew1.resx">
       <DependentUpon>201901132113019_EditNew1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Catering\201901152236151_EditNew111.resx">
+      <DependentUpon>201901152236151_EditNew111.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Identity\201901012317493_InitialCreate.resx">
       <DependentUpon>201901012317493_InitialCreate.cs</DependentUpon>

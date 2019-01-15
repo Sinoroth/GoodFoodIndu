@@ -126,3 +126,4 @@ C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.Migrations.
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\GoodFoodIndustries.csprojResolveAssemblyReference.cache
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.Migrations.Catering.EditNew11.resources
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.Migrations.Catering.EditNew1.resources
+C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.Migrations.Catering.EditNew111.resources

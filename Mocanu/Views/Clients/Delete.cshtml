@@ -1,0 +1,92 @@
+﻿@model Mocanu.Models.LModels.Client
+
+<h2>Suspend/Unsuspend</h2>
+
+<div>
+	<h4>Client</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Email)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Email)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Address)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Address)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.CNP)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.CNP)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.ID_Card_Series)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.ID_Card_Series)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.ID_Card_Number)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.ID_Card_Number)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.FirstName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.FirstName)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.LastName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.LastName)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.TelephoneNumber)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.TelephoneNumber)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Password)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Password)
+		</dd>
+
+	</dl>
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+
+		<div class="form-actions no-color">
+			<input type="submit" value="Suspend" class="btn btn-default" /> |
+			@Html.ActionLink("Back to List", "Index")
+		</div>
+	}
+</div>
