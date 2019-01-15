@@ -191,6 +191,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\FoodIngredientsController.cs" />
     <Compile Include="Controllers\FoodsController.cs" />
     <Compile Include="Controllers\FoodViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
