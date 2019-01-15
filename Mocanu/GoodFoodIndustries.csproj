@@ -195,6 +195,7 @@
     <Compile Include="Controllers\FoodsController.cs" />
     <Compile Include="Controllers\FoodViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginLogsModelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Data\CateringContext.cs" />
