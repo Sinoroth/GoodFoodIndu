@@ -96,6 +96,8 @@ namespace Mocanu.Data
                     Quantity = 200,
                     FoodType = "Desserts",
                     FoodIngredients = "",
+                    FoodtoFoodIngredients = new List<FoodtoFoodIngredients>()
+   
                 },
 
                 new Food()
@@ -133,6 +135,106 @@ namespace Mocanu.Data
             };
 
             return foods;
+        }
+
+        public static System.Collections.Generic.List<FoodIngredient> GetIngredients()
+        {
+
+            List<FoodIngredient> foodIngredients = new List<FoodIngredient>
+            {
+                new FoodIngredient()
+                {
+                        Ingredient = "carne de vita"
+                },              new FoodIngredient()
+                {
+                        Ingredient ="ardei rosu"
+                },               new FoodIngredient()
+                {
+                        Ingredient = "ceapa"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "usturoi pisat"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "ulei de masline"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "piept de pui"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "ou"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "pesmet"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "telina"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "morcov"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "varza rosie"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "salata icegerg"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "creveti"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "midii"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "surimi"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "surimi"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "lapte"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "amestec de fructe"
+                },
+
+                new FoodIngredient()
+                {
+                        Ingredient = "branza dulce"
+                },
+            };
+
+            return foodIngredients;
         }
 
     }

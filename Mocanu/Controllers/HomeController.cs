@@ -14,21 +14,9 @@ namespace Mocanu.Controllers
     {
         CateringContext db = new CateringContext();
 
+        // GET: Home/Index
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
             return View();
         }
@@ -139,6 +127,7 @@ namespace Mocanu.Controllers
             return View(transactionViewModel);
         }
 
+
         public ActionResult Plate(TransactionViewModel model)
         {
             if (model.Address == null || model.ID_Card_Number == null || model.ID_Card_Series == null)
@@ -230,9 +219,40 @@ namespace Mocanu.Controllers
             return RedirectToAction("PostOrder");
         }
 
+        // GET: Home/About
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
         [HttpGet]
         public ActionResult PostOrder()
         {
+            var userId = User.Identity.GetUserId();
+            Client client = db.Clients.Find(userId);
+            return View(client);
+        }
+
+        [HttpPost]
+        public ActionResult PostOrder(Client client)
+        {
+            foreach (var cl in db.Clients)
+            {
+                if (cl.ClientId == client.ClientId)
+                {
+                    client.UserScore = cl.UserScore;
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+        // GET: Home/Contact
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "";
+
             return View();
         }
 

@@ -7,12 +7,74 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Mocanu.Models;
+using Mocanu.Data;
+using Mocanu.Models.LModels;
+using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace Mocanu.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
+        CateringContext cateringContext = new CateringContext();
+
+        public TransactionViewModel GetTransactionViewModel(Transaction transaction, int id)
+        {
+            TransactionViewModel NewModel = new TransactionViewModel();
+
+            var Result = from Food in cateringContext.foods
+                         select new
+                         {
+                             Food.FoodName,
+                             Food.Price,
+                             Food.Quantity,
+                             Numbered = (from food in cateringContext.TransactionToFoods
+                                         where (food.FoodName == Food.FoodName)
+                                         & (food.TransactionId == id)
+                                         select food
+                                          ).Count()
+                         };
+
+            var NewTransactionViewModel = new TransactionViewModel();
+
+            NewTransactionViewModel.Address = transaction.Address;
+            NewTransactionViewModel.ClientId = transaction.ClientId;
+            NewTransactionViewModel.Email = transaction.Email;
+            NewTransactionViewModel.ID_Card_Number = transaction.ID_Card_Number;
+            NewTransactionViewModel.ID_Card_Series = transaction.ID_Card_Series;
+
+            var NumberedList = new List<NumberedViewModel>();
+
+            int totalCost = 0;
+
+            foreach (var food in Result)
+            {
+                CateringContext context = new CateringContext();
+                int nr = 0;
+                if (food.Numbered > 0)
+                {
+                    nr = context.TransactionToFoods.First(a => a.FoodName == food.FoodName && a.TransactionId == id).Number;
+                }
+                NumberedList.Add(new NumberedViewModel()
+                {
+                    Name = food.FoodName,
+                    Number = nr,
+                    Price = food.Price
+                }
+                );
+                totalCost += nr * food.Price;
+            }
+
+            transaction.TotalCost = totalCost;
+
+            NewTransactionViewModel.TotalCost = totalCost;
+            NewTransactionViewModel.Foods = NumberedList;
+
+            return NewTransactionViewModel;
+
+        }
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -32,9 +94,9 @@ namespace Mocanu.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -74,6 +136,86 @@ namespace Mocanu.Controllers
             };
             return View(model);
         }
+
+        public ActionResult UserDetails()
+        {
+            var userId = User.Identity.GetUserId();
+
+            Client client = cateringContext.Clients.Find(userId);
+
+            return View(client);
+        }
+
+        public ActionResult UserTransactions()
+        {
+            List<Transaction> transactions = new List<Transaction>();
+
+            var userId = User.Identity.GetUserId();
+
+
+            foreach (var transaction in cateringContext.transactions)
+            {
+                if (transaction.ClientId == userId)
+                {
+                    transactions.Add(transaction);
+                }
+            }
+
+            return View(transactions);
+
+        }
+
+        public ActionResult TransactionDetails(int id)
+        {
+            Transaction transaction = cateringContext.transactions.Find(id);
+
+            return View(GetTransactionViewModel(transaction, id));
+
+        }
+
+        [HttpGet]
+        public ActionResult EditDetails()
+        {
+            var userId = User.Identity.GetUserId();
+
+            Client client = cateringContext.Clients.Find(userId);
+
+            return View(client);
+        }
+
+        [HttpPost]
+        public ActionResult EditDetails(Client client)
+        {
+            foreach (var transacation in cateringContext.transactions)
+            {
+                if (transacation.ClientId == client.ClientId)
+                {
+                    transacation.Email = client.Email;
+                }
+            }
+
+            ApplicationDbContext dbContext = new ApplicationDbContext();
+
+            foreach (var user in dbContext.Users)
+            {
+                if (user.Id == client.ClientId)
+                {
+                    user.Email = client.Email;
+                    user.Address = client.Address;
+                    user.ID_Card_Number = client.ID_Card_Number;
+                    user.ID_Card_Series = client.ID_Card_Series;
+                    user.PhoneNumber = client.TelephoneNumber;
+                    user.CNP = client.CNP;
+                    user.UserName = client.FirstName;
+                    dbContext.SaveChanges();
+                }
+            }
+            cateringContext.Entry(client).State = EntityState.Modified;
+            cateringContext.SaveChanges();
+
+            return View(client);
+        }
+
 
         //
         // POST: /Manage/RemoveLogin
@@ -333,7 +475,7 @@ namespace Mocanu.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 

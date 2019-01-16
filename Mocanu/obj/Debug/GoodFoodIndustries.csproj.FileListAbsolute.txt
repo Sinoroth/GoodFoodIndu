@@ -127,3 +127,5 @@ C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\GoodFoodIndustries
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.Migrations.Catering.EditNew11.resources
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.Migrations.Catering.EditNew1.resources
 C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.Migrations.Catering.EditNew111.resources
+C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.Migrations.Catering.EditNew112.resources
+C:\Users\PC\source\repos\Mocanu\GoodFoodIndu\Mocanu\obj\Debug\Mocanu.Migrations.Catering.EditNew113.resources

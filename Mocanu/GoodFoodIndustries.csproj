@@ -227,6 +227,14 @@
     <Compile Include="Migrations\Catering\201901152236151_EditNew111.Designer.cs">
       <DependentUpon>201901152236151_EditNew111.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Catering\201901152303453_EditNew112.cs" />
+    <Compile Include="Migrations\Catering\201901152303453_EditNew112.Designer.cs">
+      <DependentUpon>201901152303453_EditNew112.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Catering\201901161626439_EditNew113.cs" />
+    <Compile Include="Migrations\Catering\201901161626439_EditNew113.Designer.cs">
+      <DependentUpon>201901161626439_EditNew113.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Catering\Configuration.cs" />
     <Compile Include="Migrations\Identity\201901012317493_InitialCreate.cs" />
     <Compile Include="Migrations\Identity\201901012317493_InitialCreate.Designer.cs">
@@ -407,6 +415,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Catering\201901152236151_EditNew111.resx">
       <DependentUpon>201901152236151_EditNew111.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Catering\201901152303453_EditNew112.resx">
+      <DependentUpon>201901152303453_EditNew112.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Catering\201901161626439_EditNew113.resx">
+      <DependentUpon>201901161626439_EditNew113.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Identity\201901012317493_InitialCreate.resx">
       <DependentUpon>201901012317493_InitialCreate.cs</DependentUpon>
