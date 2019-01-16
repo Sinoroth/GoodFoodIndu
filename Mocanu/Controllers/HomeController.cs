@@ -77,52 +77,29 @@ namespace Mocanu.Controllers
             }
             else
             {
-                HttpCookieCollection MyCookieColl = Request.Cookies;
-                HttpCookie MyCookie;
-
-                String[] arr1 = MyCookieColl.AllKeys;
                 CateringContext context = new CateringContext();
                 var NumberedList = new List<NumberedViewModel>();
 
-                for (int i = 0; i < arr1.Length; i++)
+                foreach (var food in db.currentOrders)
                 {
-                    MyCookie = MyCookieColl[arr1[i]];
-                    int price = 0;
-                    bool ok = false;
-
-                    if (MyCookie.Value == null)
+                    if (food.NumberInOrder > 0)
                     {
-                        continue;
-                    }
+                        CateringContext temp = new CateringContext();
+                        Food newFood = temp.foods.Find(food.FoodName);
 
-                    foreach (var food in db.foods)
-                    {
-                        if (food.FoodName == MyCookie.Name)
+                        NumberedList.Add(new NumberedViewModel()
                         {
-                            price = food.Price;
-                            ok = true;
-                            MyCookie.Expires = DateTime.Now.AddDays(-1);
+                            Name = food.FoodName,
+                            Number = food.NumberInOrder,
+                            Price = newFood.Price
                         }
+                    );
+                        totalCost += food.NumberInOrder * newFood.Price;
                     }
-                    if (ok == false) continue;
-
-                    if (Int32.TryParse(MyCookie.Value, out int temp) == false)
-                    {
-                        MyCookie.Expires = DateTime.Now.AddDays(-1);
-                        continue;
-                    }
-
-                    NumberedList.Add(new NumberedViewModel()
-                    {
-                        Name = MyCookie.Name,
-                        Number = Int32.Parse(MyCookie.Value),
-                        Price = price
-                    });
-                    totalCost += price * Int32.Parse(MyCookie.Value);
                 }
 
-                transactionViewModel.Foods = NumberedList;
                 transactionViewModel.TotalCost = totalCost;
+                transactionViewModel.Foods = NumberedList;
             }
             return View(transactionViewModel);
         }
@@ -165,51 +142,21 @@ namespace Mocanu.Controllers
             else
             {
                 transaction.Email = "Guest@a.net";
-
-                HttpCookieCollection MyCookieColl = Request.Cookies;
-                HttpCookie MyCookie;
-
-                String[] arr1 = MyCookieColl.AllKeys;
                 CateringContext ct = new CateringContext();
 
-                for (int i = 0; i < arr1.Length; i++)
+                foreach (var food in db.currentOrders)
                 {
-                    MyCookie = MyCookieColl[arr1[i]];
-                    int price = 0;
-                    bool ok = false;
-
-                    if (MyCookie.Value == null)
+                    if (food.NumberInOrder > 0)
                     {
-                        continue;
-                    }
-
-                    foreach (var food in ct.foods)
-                    {
-                        if (food.FoodName == MyCookie.Name)
+                        db.TransactionToFoods.Add(new TransactionToFood
                         {
-                            price = food.Price;
-                            ok = true;
-                            MyCookie.Expires = DateTime.Now.AddDays(-10);
-                        }
-                    }
-                    if (ok == false) continue;
-
-                    if (Int32.TryParse(MyCookie.Value, out int temp) == false)
-                    {
-                        MyCookie.Expires = DateTime.Now.AddDays(-10);
-                        continue;
+                            Number = food.NumberInOrder,
+                            FoodName = food.FoodName,
+                            TransactionId = transaction.Id
+                        });
                     }
 
-                    db.TransactionToFoods.Add(new TransactionToFood
-                    {
-                        Number = Int32.Parse(MyCookie.Value),
-                        FoodName = MyCookie.Name,
-                        TransactionId = transaction.Id
-                    });
-                    MyCookie.Expires = DateTime.Now.AddDays(-10);
-                    db.transactions.Add(transaction);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    db.currentOrders.Remove(food);
                 }
 
             }

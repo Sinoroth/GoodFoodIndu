@@ -105,9 +105,7 @@ namespace Mocanu.Controllers
             {
                 return View("FoodPage");
             }
-            if (Request.IsAuthenticated)
-            {
-                foreach (var f in cateringContext.currentOrders)
+            foreach (var f in cateringContext.currentOrders)
                 {
                     if (f.FoodName == foodOrderView.FoodName)
                     {
@@ -123,12 +121,8 @@ namespace Mocanu.Controllers
                 });
 
                 cateringContext.SaveChanges();
-            }
-            else
-            {
-                HttpCookie httpCookie = new HttpCookie(foodOrderView.FoodName, foodOrderView.NumberInOrder.ToString());
-                Response.Cookies.Add(httpCookie);
-            }
+            
+
 
             return RedirectToAction("FoodPage");
         }
